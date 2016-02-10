@@ -9,19 +9,20 @@
 
 
     // ----------
-    OpenSeadragon.Viewer.prototype.canvasOverlay = function() {
+    OpenSeadragon.Viewer.prototype.canvasOverlay = function(options) {
+        
         if (this._canvasOverlayInfo) {
             return this._canvasOverlayInfo;
         }
 
-        this._canvasOverlayInfo = new Overlay(this);
+        this._canvasOverlayInfo = new Overlay(this,options);
         return this._canvasOverlayInfo;
     };
 
     // ----------
-    var Overlay = function(viewer) {
+    var Overlay = function(viewer,options) {
         var self = this;
-
+        console.log(this);
         this._viewer = viewer;
 
         this._containerWidth = 0;
@@ -37,20 +38,21 @@
 
         this._canvas = document.createElement('canvas');
         this._canvasdiv.appendChild(this._canvas);
-        this.resize();
-   
-        this._viewer.addHandler('animation', function() {
-            self.onAnimation();
+        
+        this.onRedraw = options.onRedraw || function(){};
+        this.clearBeforeRedraw = (typeof (options.clearBeforeRedraw) !== "undefined") ?
+                        options.clearBeforeRedraw : true;
+                        
+        this.resize();                
+        
+        this._viewer.addHandler('animation', function() {         
             self.resize();
-            self.resizeCanvas();
-            
-
+            self._updateCanvas();
         });
 
         this._viewer.addHandler('open', function() {
             self.resize();
-            self.resizeCanvas();
-           
+            self._updateCanvas();     
         });
 
        
@@ -84,7 +86,7 @@
                 this._canvas.setAttribute('height', this._containerHeight);
             }
         },
-        resizeCanvas: function() {
+        _updateCanvas: function() {
             var viewportZoom = this._viewer.viewport.getZoom(true);
             var image1 = this._viewer.world.getItemAt(0);
             var zoom = image1.viewportToImageZoom(viewportZoom);
@@ -92,15 +94,11 @@
             var image1WindowPoint = image1.imageToWindowCoordinates(origin);        
             var x=Math.round(image1WindowPoint.x);
             var y=Math.round(image1WindowPoint.y);
+            if (this.clearBeforeRedraw) this.clear();
             this._canvas.getContext('2d').translate(x,y);
             this._canvas.getContext('2d').scale(zoom,zoom);     
-            this.redrawCanvas();    
+            this.onRedraw();    
             this._canvas.getContext('2d').setTransform(1, 0, 0, 1, 0, 0);
-        },
-        redrawCanvas: function() {
-        
-        },
-        onAnimation: function() {
         }
     };
 

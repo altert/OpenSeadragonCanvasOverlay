@@ -51,16 +51,12 @@
                         }]
                     });
 
-                    var overlay = this.viewer.canvasOverlay();
-
-
-                    overlay.redrawCanvas = function() {                        
-                        overlay.context2d().fillStyle = "red";
-                        overlay.context2d().fillRect(0, 0, 500, 500);                   
-                    }
-                    overlay.onAnimation = function() {
-                        overlay.clear();
-                    }
+                    var overlay = this.viewer.canvasOverlay({
+                            onRedraw:function() {      
+                                overlay.context2d().fillStyle = "red";
+                                overlay.context2d().fillRect(0, 0, 500, 500);            
+                            }
+                        });
                     
                     $(window).resize(function() {
                         overlay.resize();

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Openseadragoncanvasoverlay : An OpenSeadragon plugin that adds canvas overlay capability">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Openseadragoncanvasoverlay</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/altert/OpenSeadragonCanvasOverlay">View on GitHub</a>
+
+          <h1 id="project_title">Openseadragoncanvasoverlay</h1>
+          <h2 id="project_tagline">An OpenSeadragon plugin that adds canvas overlay capability</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/altert/OpenSeadragonCanvasOverlay/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/altert/OpenSeadragonCanvasOverlay/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="openseadragoncanvasoverlay" class="anchor" href="#openseadragoncanvasoverlay" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OpenSeadragonCanvasOverlay</h1>
+
+<p>An <a href="http://openseadragon.github.io">OpenSeadragon</a> plugin that adds canvas overlay capability.</p>
+
+<p>Compatible with OpenSeadragon 2.0.0 or greater.</p>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>To use, include the <code>openseadragon-canvas-overlay.js</code> file after <code>openseadragon.js</code> on your web page.</p>
+
+<p>To add canvas overlay capability to your OpenSeadragon Viewer, call <code>canvasOverlay()</code> on it. This will return a new object with the following methods:</p>
+
+<ul>
+<li>
+<code>canvas()</code>: Returns canvas element.</li>
+<li>
+<code>resize()</code>: If your viewer changes size, you'll need to resize the canvas overlay by calling this method.</li>
+<li>
+<code>clear()</code>: Clears canvas.</li>
+<li>
+<code>context2d()</code>: Gives access to 2d context of canvas, to draw on it.</li>
+<li>
+<code>redrawCanvas()</code>: You can use this function to draw on canvas. </li>
+<li>
+<code>onAnimation()</code>: This function is called on animation, i.e. zoom and pan of overlay. You can use it to clear canvas before redraw, for example. </li>
+</ul>
+
+<p>See <a href="http://altert.github.io/OpenSeadragonCanvasOverlay/demo.html">online demo</a> or demo.html for an example of it in use. </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Openseadragoncanvasoverlay maintained by <a href="https://github.com/altert">altert</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>

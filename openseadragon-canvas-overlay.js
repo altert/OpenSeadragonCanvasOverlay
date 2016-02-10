@@ -10,8 +10,8 @@
 
     // ----------
     OpenSeadragon.Viewer.prototype.canvasOverlay = function() {
-        if (this._fabricjsOverlayInfo) {
-            return this._fabricjsOverlayInfo;
+        if (this._canvasOverlayInfo) {
+            return this._canvasOverlayInfo;
         }
 
         this._canvasOverlayInfo = new Overlay(this);

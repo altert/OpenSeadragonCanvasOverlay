@@ -9,7 +9,17 @@ Compatible with OpenSeadragon 2.0.0 or greater.
 To use, include the `openseadragon-canvas-overlay.js` file after `openseadragon.js` on your web page.
 
 To add canvas overlay capability to your OpenSeadragon Viewer, call `canvasOverlay(options)` on it. It has two parameters:
-`onRedraw` - callback function that does the actual drawing, and `clearBeforeRedraw` (default as true): clear canvas before redrawing
+`onRedraw` - callback function that does the actual drawing, and `clearBeforeRedraw` (default as true): clear canvas before redrawing. 
+
+For example:
+`var overlay = this.viewer.canvasOverlay({
+        onRedraw:function() {      
+            overlay.context2d().fillStyle = "red";
+            overlay.context2d().fillRect(0, 0, 500, 500);            
+        }
+    },
+    clearBeforeRedraw:true);`
+    
  This will return a new object with the following methods:
 
 * `canvas()`: Returns canvas element.

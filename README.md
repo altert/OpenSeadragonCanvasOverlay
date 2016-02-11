@@ -15,7 +15,7 @@ For example:
 
 ```javascript
 var overlay = this.viewer.canvasOverlay({
-        onRedraw:function() {      
+    onRedraw:function() {      
         overlay.context2d().fillStyle = "red";
         overlay.context2d().fillRect(0, 0, 500, 500);            
     }

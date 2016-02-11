@@ -18,9 +18,9 @@ var overlay = this.viewer.canvasOverlay({
     onRedraw:function() {      
         overlay.context2d().fillStyle = "red";
         overlay.context2d().fillRect(0, 0, 500, 500);            
-    }
-},
-clearBeforeRedraw:true);
+    },
+    clearBeforeRedraw:true
+});
  ```  
   
  This will return a new object with the following methods:

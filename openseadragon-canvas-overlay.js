@@ -45,7 +45,7 @@
                         
         this.resize();                
         
-        this._viewer.addHandler('animation', function() {         
+        this._viewer.addHandler('update-viewport', function() {         
             self.resize();
             self._updateCanvas();
         });

@@ -1,4 +1,4 @@
-// OpenSeadragon canvas Overlay plugin 0.0.1 based on svg overlay plugin
+// OpenSeadragon canvas Overlay plugin 0.0.2 based on svg overlay plugin
 
 (function() {
 

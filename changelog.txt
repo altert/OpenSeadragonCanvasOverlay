@@ -5,3 +5,7 @@ OPENSEADRAGON CANVAS OVERLAY CHANGELOG
 0.0.1:
 
 * First version
+
+0.0.2:
+
+* Fixed for dependancy on OSD 2.2.0 (viewport.contentSize support dropped)

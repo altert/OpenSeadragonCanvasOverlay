@@ -22,7 +22,6 @@
     // ----------
     var Overlay = function(viewer,options) {
         var self = this;
-        console.log(this);
         this._viewer = viewer;
 
         this._containerWidth = 0;
@@ -43,7 +42,7 @@
         this.clearBeforeRedraw = (typeof (options.clearBeforeRedraw) !== "undefined") ?
                         options.clearBeforeRedraw : true;
                         
-        this.resize();                
+                      
         
         this._viewer.addHandler('update-viewport', function() {         
             self.resize();
@@ -92,8 +91,9 @@
             
             this._viewportWidth = boundsRect.width;
             this._viewportHeight = boundsRect.height * this.imgAspectRatio;
-            this.imgWidth = this._viewer.viewport.contentSize.x;
-            this.imgHeight = this._viewer.viewport.contentSize.y;
+            var image1 = this._viewer.world.getItemAt(0);
+            this.imgWidth = image1.source.dimensions.x;
+            this.imgHeight = image1.source.dimensions.y;
             this.imgAspectRatio = this.imgWidth / this.imgHeight;
         },
         _updateCanvas: function() {

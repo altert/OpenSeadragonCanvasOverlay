@@ -2,7 +2,7 @@
 
 An [OpenSeadragon](http://openseadragon.github.io) plugin that adds canvas overlay capability.
 
-Compatible with OpenSeadragon 2.0.0 or greater.
+Compatible with OpenSeadragon 2.2.0 or greater.
 
 ## Documentation
 
